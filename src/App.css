@@ -1,4 +1,35 @@
 .App {
+  display: flex; /* برای کنار هم قرار گرفتن سایدبار و محتوای اصلی */
+  min-height: 100vh; /* برای اینکه کل صفحه پر بشه */
+}
+
+.main {
+  flex: 1; /* برای پر کردن فضای باقی‌مانده */
+  display: flex;
+  flex-direction: column; /* هدر و محتوا به‌صورت عمودی */
+  padding: 20px; /* اختیاری: فاصله داخلی */
+}
+
+.logo {
+  max-width: 100px; /* تنظیم اندازه لوگو */
+  margin-bottom: 20px; /* فاصله زیر لوگو */
+}
+
+.header {
+  /* استایل هدر، اگر Header کامپوننت استایل جدا داره، اینجا اضافه نکنید */
+  width: 100%;
+  background: #fff; /* اختیاری */
+  padding: 10px 0;
+}
+
+.main-wrapper {
+display: flex;
+width: 100%;
+  flex-direction: column; /* برای اینکه محتوای routes زیر هدر قرار بگیره */
+  padding: 20px; /* فاصله داخلی */
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +66,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
