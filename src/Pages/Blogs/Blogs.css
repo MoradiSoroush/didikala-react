@@ -1,0 +1,180 @@
+main.main-content {
+    position: relative;
+}
+
+/* post-card */
+
+.post-card {
+    margin: auto auto 50px;
+    padding: 10px;
+    max-width: 270px;
+    height: 200px;
+    min-height: 50px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+
+.post-card .post-thumbnail {
+    position: relative;
+    overflow: hidden;
+    height: 140px;
+    padding: 0 10px 20px 10px;
+    top: -40px;
+    left: -10px;
+}
+
+.post-card .post-thumbnail a {
+    display: block;
+    height: 100%;
+}
+
+.post-card .post-thumbnail img {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.post-card .post-thumbnail .post-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fefefe;
+    z-index: 1;
+    font-size: 11px;
+    padding: 3px 10px 1px 10px;
+    border-radius: 3px;
+}
+
+.post-card .post-title {
+    position: relative;
+    top: -50px;
+    text-align: right;
+    line-height: 24px;
+    height: 90px;
+    overflow: hidden;
+}
+
+.post-card .post-title a {
+    color: #000;
+}
+
+.post-card .post-title a:hover {
+    color: #f44336;
+}
+
+.post-card .post-title>span {
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    display: inline-block;
+    font-size: 11px;
+    font-family: Shabnam;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+/* end post-card */
+/* ------------ Start Section-Title */
+
+.section-title {
+    position: relative;
+    margin-bottom: 20px;
+    z-index: 0;
+}
+
+.title-wide::after {
+    content: '';
+    background-color: #d9e1eb;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 16px;
+}
+
+.no-after-title-wide::after {
+    display: none;
+}
+
+.title-wide a,
+.title-wide h2 {
+    color: #6f7479;
+    line-height: 33px;
+}
+
+.title-wide h2 {
+    font-size: 20px;
+    height: 33px;
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    padding-right: 40px;
+    padding-left: 10px;
+}
+
+.text-sm-title h2 {
+    font-size: 16px;
+}
+
+.title-wide h2:after,
+.title-wide h2:before {
+    content: '';
+}
+
+.title-wide h2:before {
+    background: url(../img/theme/title-circles.png) left no-repeat;
+    display: block;
+    position: absolute;
+    right: -20px;
+    top: 11px;
+    height: 14px;
+    width: 32px;
+    margin-right: 13px;
+    height: 14px;
+    width: 32px;
+}
+
+.no-title-wide-before h2 {
+    padding-right: 10px;
+}
+
+.no-title-wide-before h2::before {
+    background: none;
+}
+
+.title-wide a {
+    display: block;
+    position: relative;
+    float: left;
+    padding: 0 10px;
+    margin: 4px;
+    height: 33px;
+    background-color: #edf0f5;
+    color: #f7858d;
+    font-weight: bold;
+    border-radius: 3px;
+    z-index: 100;
+}
+
+.title-wide a::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: -28px;
+    width: 28px;
+    height: 2px;
+    background-color: #edf0f5;
+}
+
+.section-title p {
+    margin: -10px 40px 0;
+    color: #000;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* End Section-Title------------ */

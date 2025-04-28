@@ -9,7 +9,28 @@
   flex-direction: column; /* هدر و محتوا به‌صورت عمودی */
   padding: 20px; /* اختیاری: فاصله داخلی */
 }
+.main-content-wrapper {
+  flex: 1; /* برای پر کردن فضای باقی‌مانده */
+  display: flex;
+  flex-direction: column; /* محتوا به‌صورت عمودی */
+  padding: 20px; /* اختیاری: فاصله داخلی */
+  margin-top: 50px;
+}
+.main-content-wrapper.scrolled {
+  flex: 1; /* برای پر کردن فضای باقی‌مانده */
+  display: flex;
+  flex-direction: column; /* محتوا به‌صورت عمودی */
+  padding: 20px; /* اختیاری: فاصله داخلی */
+  margin-top: 70px;
+}
+.main-content {
+  flex: 1; /* برای پر کردن فضای باقی‌مانده */
+  display: flex;
+  flex-direction: column; /* محتوا به‌صورت عمودی */
+  padding: 20px; /* اختیاری: فاصله داخلی */
+  
 
+}
 .logo {
   max-width: 100px; /* تنظیم اندازه لوگو */
   margin-bottom: 20px; /* فاصله زیر لوگو */

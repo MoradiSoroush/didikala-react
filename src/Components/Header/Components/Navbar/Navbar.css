@@ -1,0 +1,39 @@
+.bottom-header {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+transition: all 0.3s ease-in-out;
+}
+
+header.main-header .bottom-header.scrolled {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.main-container {
+  width: 100%;
+
+}
+.main-menu {
+  display: flex;
+  justify-content: space-between;
+  direction: rtl;
+  align-content: center;
+  align-items: center;
+  flex: 1;
+}
+.nav-menu {
+
+}
+.list-item {
+  padding: 2px 19px;
+}
+
+.category-list {
+
+}

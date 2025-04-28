@@ -1,0 +1,88 @@
+.profile-section {
+    height: 310px;
+    padding: 10px;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+
+.profile-section .label-info {
+    color: #b9b9b9;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.profile-section .value-info {
+    color: #4a5f73;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.profile-section .list-favorites li {
+    display: flex;
+    vertical-align: middle;
+    height: 60px;
+    list-style: none;
+    padding: 10px;
+    border: 1px solid #ededed;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.profile-section .list-favorites li a {
+    display: inline-block;
+}
+
+.profile-section .list-favorites li a span {
+    width: 310px;
+    color: #7b7b7b;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.profile-section .list-favorites li a span:hover {
+    color: #00BFD6;
+}
+
+.profile-section .list-favorites li a img {
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+}
+
+.profile-section .list-favorites li button {
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    width: 35px;
+    height: 35px;
+    line-height: 30px;
+    font-size: 20px;
+    border: 0;
+    border-radius: 12px;
+    background-color: #edf0f5;
+    color: #f7858d;
+    outline: none;
+    cursor: pointer;
+}
+
+a.border-bottom-dt {
+    color: #f7858d;
+    font-weight: bold;
+    border-bottom: 1px dashed #f7858d;
+}
+
+.profile-section .profile-section-link {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 15px;
+    text-align: center;
+}

@@ -1,0 +1,244 @@
+
+
+.topbar-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    direction: rtl;
+    flex: 1;
+}
+
+.topbar-left {
+    display: flex;
+    margin-top: 0 !important;
+    justify-content: flex-end;
+}
+.header.main-header .dropdown-menu {
+  left: -54px;
+}
+/* .header.main-header .dropdown-menu-left {
+z-index: 9999;
+  left: -54px;
+  right: auto;
+  top: 100%;
+  margin-top: 0;
+  padding: 0;
+  border-radius: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} */
+header.main-header .dropdown-menu .dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.message-item {
+  position: relative;
+}
+.message-badge {
+  width: 17px;
+  height: 17px;
+  color: red !important ;
+  /* border: 1px solid rgba(0, 0, 0, 0.488); */
+  border-radius: 100px !important;
+  /* background-color: rgba(0, 0, 0, 0.204); */
+  font-size: larger;
+  position: absolute;
+  top: 5px;
+  right: 50px;
+  text-align: center;
+}
+
+
+/* 
+.topbar-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 6fr 4fr; 
+    gap: 15px;
+    align-items: center; 
+    padding: 10px 0; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    direction: rtl; 
+  }
+  
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-area img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+
+  .search-area {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search {
+    position: relative;
+    width: 100%;
+    max-width: 500px; 
+  }
+  
+  .search input {
+    width: 100%;
+    padding: 10px 40px 10px 20px; 
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+  }
+  
+  .close-search-result {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+  }
+  
+  .search-result {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+  
+  .search-result ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .search-result li {
+    padding: 10px;
+  }
+  
+  .search-result li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+  }
+  
+  .search-result li a:hover {
+    background: #f5f5f5;
+  }
+  
+
+  .topbar-left {
+    display: flex;
+    justify-content: flex-start; 
+  }
+  
+  .nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+  }
+  
+  .label-dropdown {
+    margin-left: 5px;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0; 
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none; 
+    min-width: 200px;
+  }
+  
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .dropdown-item:hover {
+    background: #f5f5f5;
+  }
+  
+  .dropdown-divider {
+    height: 1px;
+    background: #ddd;
+    margin: 5px 0;
+  }
+  
+  .nav-item:hover .dropdown-menu {
+    display: block; 
+  }
+    
+  
+
+  @media (max-width: 768px) {
+    .topbar-wrapper {
+      grid-template-columns: 3fr 5fr 4fr; 
+      gap: 10px;
+    }
+  }
+  
+  
+  @media (max-width: 576px) {
+    .topbar-wrapper {
+      grid-template-columns: 2fr 1fr; 
+      grid-template-areas:
+        "logo topbar-left"
+        "search search"; 
+      gap: 10px;
+    }
+  
+    .logo-area {
+      grid-area: logo;
+    }
+  
+    .search-area {
+      grid-area: search;
+      display: none; 
+    }
+  
+    .topbar-left {
+      grid-area: topbar-left;
+      justify-content: flex-end; 
+    }
+  } */
