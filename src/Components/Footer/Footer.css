@@ -1,0 +1,10 @@
+.back-to-top__icon {
+    
+    background-color: #d63384;
+    font-size: 1rem;
+    color: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 0.5rem;
+
+}

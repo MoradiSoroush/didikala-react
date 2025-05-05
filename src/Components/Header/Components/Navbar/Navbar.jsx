@@ -4,6 +4,7 @@ import ShoppingCart from "../../../ShoppingCart/ShoppingCart";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import MenuIcon from '@mui/icons-material/Menu';
 
 export default function Navbar() {
 
@@ -29,20 +30,25 @@ export default function Navbar() {
   },[])
 
 
+  const activeListHandler = (event) => {
+    event.preventDefault()
+   event.target.classList.add("active")
+   console.log(event.target)
+  }
 
   return (
     <div class={isScrolled ? "bottom-header dt-sl mb-sm-bottom-header scrolled" : "bottom-header dt-sl mb-sm-bottom-header" }>
-      <div class="container main-container">
+      <div class="container">
         <nav class="main-menu ">
           <ul class="list nav hidden-sm">
             <li class="list-item category-list">
-              <a href="/test">
-                <BarChartIcon className="category-icon" />
+              <a>
+                <MenuIcon className="category-icon" />
                 <span class="category-name">دسته بندی کالاها</span>
               </a>
               <ul>
-                <li class="active">
-                  <a href="/test">کالای دیجیتال</a>
+                <li className="sub-list-item"  onClick={(event) => activeListHandler(event)}>
+                  کالای دیجیتال
                   <ul class="row">
                     <li class="sublist--title">
                       <a href="/test">لوازم جانبی گوشی</a>
@@ -105,8 +111,8 @@ export default function Navbar() {
                 
                   </ul>
                 </li>
-                <li>
-                  <a href="/test">خودرو، ابزار و تجهیزات صنعتی</a>
+                <li  className="sub-list-item active"  onClick={(event) => activeListHandler(event)}>
+                  خودرو، ابزار و تجهیزات صنعتی
                   <ul class="row">
                     <li class="sublist--title">
                       <a href="/test">لوازم جانبی گوشی</a>
@@ -182,8 +188,8 @@ export default function Navbar() {
                     </li>
                   </ul>
                 </li>
-                <li>
-                  <a href="/test">مد و پوشاک</a>
+                <li className="sub-list-item" onClick={(event) => activeListHandler(event)}>
+                  مد و پوشاک
                   <ul class="row">
                     <li class="sublist--title">
                       <a href="/test">لوازم جانبی گوشی</a>
@@ -238,8 +244,8 @@ export default function Navbar() {
                     </li>
                   </ul>
                 </li>
-                <li>
-                  <a href="/test">زیبایی و سلامت</a>
+                <li className="sub-list-item" onClick={(event) => activeListHandler(event)}>
+                  زیبایی و سلامت
                   <ul class="row">
                     <li class="sublist--title">
                       <a href="/test">لوازم جانبی گوشی</a>
@@ -276,8 +282,8 @@ export default function Navbar() {
                     </li>
                   </ul>
                 </li>
-                <li>
-                  <a href="/test">خانه و آشپزخانه</a>
+                <li className="sub-list-item" onClick={(event) => activeListHandler(event)}>
+                 خانه و آشپزخانه
                   <ul class="row">
                     <li class="sublist--title">
                       <a href="/test">لوازم جانبی گوشی</a>
@@ -362,8 +368,8 @@ export default function Navbar() {
                     </li>
                   </ul>
                 </li>
-                <li>
-                  <a href="/test">کتاب، لوازم تحریر و هنر</a>
+                <li className="sub-list-item" onClick={(event) => activeListHandler(event)}>
+                 کتاب، لوازم تحریر و هنر
                   <ul class="row">
                     <li class="sublist--item">
                       <a href="/test">کارت حافظه</a>
@@ -421,8 +427,8 @@ export default function Navbar() {
                     </li>
                   </ul>
                 </li>
-                <li>
-                  <a href="/test">اسباب بازی، کودک و نوزاد</a>
+                <li className="sub-list-item" onClick={(event) => activeListHandler(event)}>
+                 اسباب بازی، کودک و نوزاد
                   <ul class="row">
                     <li class="sublist--title">
                       <a href="/test">لوازم جانبی گوشی</a>
@@ -492,8 +498,8 @@ export default function Navbar() {
                     </li>
                   </ul>
                 </li>
-                <li>
-                  <a href="/test">ورزش و سفر</a>
+                <li className="sub-list-item" onClick={(event) => activeListHandler(event)}>
+                  ورزش و سفر
                   <ul class="row">
                     <li class="sublist--title">
                       <a href="/test">لوازم جانبی گوشی</a>
@@ -536,8 +542,8 @@ export default function Navbar() {
                     </li>
                   </ul>
                 </li>
-                <li>
-                  <a href="/test">خوردنی و آشامیدنی</a>
+                <li className="sub-list-item" onClick={(event) => activeListHandler(event)}>
+                  خوردنی و آشامیدنی
                   <ul class="row">
                     <li class="sublist--title">
                       <a href="/test">لوازم جانبی گوشی</a>

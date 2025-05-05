@@ -1,0 +1,30 @@
+.custom-carousel {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  opacity: 1 !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.splide-slide {
+  height: inherit;
+}
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.splide__list {
+  border-radius: 12px;
+  overflow: visible !important;
+}
+.splide__track {
+  height: 100% !important;
+}

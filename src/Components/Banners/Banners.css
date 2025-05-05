@@ -1,0 +1,60 @@
+.card-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 180px;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  overflow: hidden;
+}
+
+.card-body {
+  position: absolute;
+  width: 120px;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  padding: 10px;
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+.card-body button {
+  width: fit-content;
+  padding: 5px 10px !important;
+  border-radius: 5px !important;
+  background-color: #f86b75 !important;
+}
+.card-body button:hover {
+  background-color: #f74d58 !important;
+}
+.large-banner-card-wrapper {
+  width: 100% !important;
+  height: 160px !important;
+  display: flex !important;
+  justify-content: start !important;
+  align-items: center !important;
+  direction: rtl;
+}
+.large-banner-card-wrapper .large-banner-card-body {
+  position: absolute;
+  width: 35%;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  align-items: end;
+  transition: all 0.3s ease;
+}
+ .discount-badge {
+  width: max-content !important;
+  padding: 10px 15px !important;
+  border-radius: 12px;
+  border-top-left-radius: 0 !important;
+  background-color: #f74d58 !important;
+  margin: 10px 0 !important;
+}
+
+
+ .discount-badge p {
+  margin: 0 !important;
+  color: rgb(255, 255, 255) !important;
+}

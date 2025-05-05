@@ -1,0 +1,28 @@
+.widgets-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  direction: rtl;
+  flex-direction: row;
+}
+
+.newsletter-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer-social .social-icons .instagram-icon a:hover {
+  color: #e1306c !important;
+  transition: all 0.3s ease-in-out;
+}
+.footer-social .social-icons .facebook-icon a:hover {
+  color: #3b5998 !important;
+}
+.footer-social .social-icons .telegram-icon a:hover {
+  color: #0088cc !important;
+}
+.footer-social .social-icons .x-icon a:hover {
+  color: #000 !important;
+}

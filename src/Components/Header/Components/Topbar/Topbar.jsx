@@ -11,8 +11,8 @@ import { Link,NavLink } from "react-router-dom";
 
 export default function Topbar() {
   return (
-    <div class="container main-container">
-      <div class="topbar dt-sl">
+
+      <div class="topbar">
         <div class="row topbar-wrapper">
           <div class="col-lg-2 col-md-3 col-6">
             <div class="logo-area">
@@ -92,6 +92,6 @@ export default function Topbar() {
           </div>
         </div>
       </div>
-    </div>
+ 
   );
 }
