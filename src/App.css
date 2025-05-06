@@ -2,7 +2,13 @@
   display: flex; /* برای کنار هم قرار گرفتن سایدبار و محتوای اصلی */
   min-height: 100vh; /* برای اینکه کل صفحه پر بشه */
 }
-
+input,button {
+  border: 0 !important;
+  padding: 0 !important;
+}
+a {
+  color: inherit;
+}
 .main {
   flex: 1; /* برای پر کردن فضای باقی‌مانده */
   display: flex;

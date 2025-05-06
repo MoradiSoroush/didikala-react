@@ -2,6 +2,8 @@ import { useState, useCallback } from 'react';
 
 function useLocalStorage(key, initialValue = null) {
 
+
+  //get item
   const getStoredValue = () => {
     try {
       const item = localStorage.getItem(key);
@@ -14,10 +16,10 @@ function useLocalStorage(key, initialValue = null) {
 
   const [storedValue, setStoredValue] = useState(getStoredValue);
 
+  //set item
   const setValue = useCallback(
     (value) => {
       try {
-
         const valueToStore = value instanceof Function ? value(storedValue) : value;
         setStoredValue(valueToStore);
 
@@ -33,16 +35,9 @@ function useLocalStorage(key, initialValue = null) {
     [key, storedValue]
   );
 
-  const removeValue = useCallback(() => {
-    try {
-      localStorage.removeItem(key);
-      setStoredValue(initialValue);
-    } catch (error) {
-      console.error(`Error removing localStorage key "${key}":`, error);
-    }
-  }, [key, initialValue]);
 
-  return [storedValue, setValue, removeValue];
+
+  return [getStoredValue, setValue];
 }
 
 export default useLocalStorage;

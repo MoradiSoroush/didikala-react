@@ -13,28 +13,11 @@ import LoginPage from "./Pages/Login/LoginPage";
 
 
 function App() {
-  const {authToken,isAuthenticated} = useAuthToken()
-  const [isLogin, setIsLogin] = useState(!!authToken)
-
+ 
   let router = useRoutes(routes)
 
   const [isScrolled, setIsScrolled] = useState(false);
 
-
-
-  
-  let autUserToken = localStorage.getItem("token")
-console.log(autUserToken)
-
-
-
-
-
-useEffect (() => {
-setIsLogin(!!authToken)
-console.log(isLogin)
-console.log(isAuthenticated)
-},[authToken,isLogin])
 
 
 
@@ -65,17 +48,8 @@ console.log(isAuthenticated)
       <div className="App">
 
         <container className="container">
-
-          {!isLogin ?
-            <div className="main-wrapper">
-              <div className={isScrolled ? "main-content-wrapper scrolled" : "main-content-wrapper"}>
-                {router}
-              </div>
-              <Footer />
-            </div>
-            :
-            <>
-              <div className="side-bar" >
+           
+              <div className="sidebar" >
               </div>
               <div className="main-wrapper">
                 <Header />
@@ -84,22 +58,10 @@ console.log(isAuthenticated)
                 </div>
                 <Footer />
               </div>
-            </>
-          }
        </container>
 
       </div>
-
-      :
-
-
-
-
-
-
     </ThemeProvider>
-
-
   );
 }
 

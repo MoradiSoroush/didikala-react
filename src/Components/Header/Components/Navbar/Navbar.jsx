@@ -1,43 +1,53 @@
-import React,{useState,useEffect} from "react";
-import "./Navbar.css"
+import React, { useState, useEffect } from "react";
+import "./Navbar.css";
 import ShoppingCart from "../../../ShoppingCart/ShoppingCart";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import MenuIcon from '@mui/icons-material/Menu';
+import "bootstrap/dist/css/bootstrap.min.css";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import MenuIcon from "@mui/icons-material/Menu";
+import useAuthToken from "../../../../Hooks/useAuthToken";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
-
   const [isScrolled, setIsScrolled] = useState(false);
 
+  let { isAuthenticated } = useAuthToken();
 
   useEffect(() => {
-
-    const HandleScroll =() => {
-      if(window.scrollY > 50){
-        setIsScrolled(true)
-      }else {
-        setIsScrolled(false)
+    const HandleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
       }
-    }
+    };
 
-    window.addEventListener("scroll",HandleScroll)
+    window.addEventListener("scroll", HandleScroll);
 
-    return() => {
-      window.removeEventListener("scroll",HandleScroll)
-    }
-
-  },[])
-
+    return () => {
+      window.removeEventListener("scroll", HandleScroll);
+    };
+  }, []);
 
   const activeListHandler = (event) => {
-    event.preventDefault()
-   event.target.classList.add("active")
-   console.log(event.target)
-  }
+    event.preventDefault();
+
+    document.querySelectorAll(".sub-list-item").forEach((item) => {
+      item.classList.remove("active");
+    });
+
+    event.target.classList.add("active");
+
+    console.log(event.target);
+  };
 
   return (
-    <div class={isScrolled ? "bottom-header dt-sl mb-sm-bottom-header scrolled" : "bottom-header dt-sl mb-sm-bottom-header" }>
+    <div
+      class={
+        isScrolled
+          ? "bottom-header dt-sl mb-sm-bottom-header scrolled"
+          : "bottom-header dt-sl mb-sm-bottom-header"
+      }
+    >
       <div class="container">
         <nav class="main-menu ">
           <ul class="list nav hidden-sm">
@@ -46,12 +56,15 @@ export default function Navbar() {
                 <MenuIcon className="category-icon" />
                 <span class="category-name">دسته بندی کالاها</span>
               </a>
-              <ul>
-                <li className="sub-list-item"  onClick={(event) => activeListHandler(event)}>
+              <ul className="sub-list">
+                <li
+                  className="sub-list-item"
+                  onClick={(event) => activeListHandler(event)}
+                >
                   کالای دیجیتال
                   <ul class="row">
                     <li class="sublist--title">
-                      <a href="/test">لوازم جانبی گوشی</a>
+                      <a href="/test">لپتاپ</a>
                     </li>
                     <li class="sublist--item">
                       <a href="/test">کیف و کاور گوشی</a>
@@ -63,7 +76,7 @@ export default function Navbar() {
                       <a href="/test">پایه نگهدارنده گوشی</a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">گوشی موبایل</a>
+                      <a href="/test">گوشی موبایل </a>
                     </li>
                     <li class="sublist--item">
                       <a href="/test">سامسونگ</a>
@@ -107,148 +120,131 @@ export default function Navbar() {
                     <li class="sublist--item">
                       <a href="/test">دوربین‌ ورزشی و فیلم برداری</a>
                     </li>
-                 
-                
                   </ul>
                 </li>
-                <li  className="sub-list-item active"  onClick={(event) => activeListHandler(event)}>
+                <li
+                  className="sub-list-item active"
+                  onClick={(event) => activeListHandler(event)}
+                >
                   خودرو، ابزار و تجهیزات صنعتی
                   <ul class="row">
                     <li class="sublist--title">
-                      <a href="/test">لوازم جانبی گوشی</a>
+                      <a href="/test">لوازم مصرفی خودرو </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">کیف و کاور گوشی</a>
+                      <a href="/test"> روغن موتور </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">پاور بانک (شارژر همراه)</a>
+                      <a href="/test">فیلتر ها</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">پایه نگهدارنده گوشی</a>
+                      <a href="/test">باتری </a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">گوشی موبایل</a>
+                      <a href="/test">لوازم یدکی خودرو </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">سامسونگ</a>
+                      <a href="/test">لوازم بدنه</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">هوآوی</a>
+                      <a href="/test">چراغ</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">اپل</a>
+                      <a href="/test">ایینه</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">شیائومی</a>
+                      <a href="/test">لوازم مکانیکی</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">آنر</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">نوکیا</a>
+                      <a href="/test">فن کولر</a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">واقعیت مجازی</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">مچ‌بند و ساعت هوشمند</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">هدفون، هدست، هندزفری</a>
+                      <a href="/test">لوازم جانبی خودرو </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">سامسونگ</a>
+                      <a href="/test">روکش</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">هوآوی</a>
+                      <a href="/test">کف پوش</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">اپل</a>
+                      <a href="/test">زنجیر چرخ</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">شیائومی</a>
+                      <a href="/test">عایق موتور</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">آنر</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">نوکیا</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">واقعیت مجازی</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">مچ‌بند و ساعت هوشمند</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">هدفون، هدست، هندزفری</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">برندها</a>
+                      <a href="/test">پا رکابی</a>
                     </li>
                   </ul>
                 </li>
-                <li className="sub-list-item" onClick={(event) => activeListHandler(event)}>
+                <li
+                  className="sub-list-item"
+                  onClick={(event) => activeListHandler(event)}
+                >
                   مد و پوشاک
                   <ul class="row">
                     <li class="sublist--title">
-                      <a href="/test">لوازم جانبی گوشی</a>
+                      <a href="/test"> پوشاک مردانه </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">کیف و کاور گوشی</a>
+                      <a href="/test"> تیشرت </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">پاور بانک (شارژر همراه)</a>
+                      <a href="/test"> شلوار </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">پایه نگهدارنده گوشی</a>
+                      <a href="/test"> کفش </a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">گوشی موبایل</a>
+                      <a href="/test">پوشاک زنانه </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">سامسونگ</a>
+                      <a href="/test"> تیشرت </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">هوآوی</a>
+                      <a href="/test"> شلوار </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">اپل</a>
+                      <a href="/test"> لباس زیر </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">هوآوی</a>
+                      <a href="/test"> جوراب </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">اپل</a>
+                      <a href="/test">پوشاک بچگانه</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">شیائومی</a>
+                      <a href="/test"> شلوارک </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">آنر</a>
+                      <a href="/test"> دمپایی </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">نوکیا</a>
+                      <a href="/test"> شرت </a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">واقعیت مجازی</a>
+                      <a href="/test"> لباس دخترانه </a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">مچ‌بند و ساعت هوشمند</a>
+                      <a href="/test"> لباس پسرانه </a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">هدفون، هدست، هندزفری</a>
+                      <a href="/test"> پوشاک فری سایز </a>
                     </li>
                     <li class="sublist--title">
                       <a href="/test">برندها</a>
                     </li>
                   </ul>
                 </li>
-                <li className="sub-list-item" onClick={(event) => activeListHandler(event)}>
+                <li
+                  className="sub-list-item"
+                  onClick={(event) => activeListHandler(event)}
+                >
                   زیبایی و سلامت
                   <ul class="row">
                     <li class="sublist--title">
-                      <a href="/test">لوازم جانبی گوشی</a>
+                      <a href="/test">لوازم ارایش </a>
                     </li>
                     <li class="sublist--item">
                       <a href="/test">کیف و کاور گوشی</a>
@@ -260,7 +256,7 @@ export default function Navbar() {
                       <a href="/test">پایه نگهدارنده گوشی</a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">گوشی موبایل</a>
+                      <a href="/test">لوازم بهداشتی </a>
                     </li>
                     <li class="sublist--item">
                       <a href="/test">سامسونگ</a>
@@ -272,290 +268,231 @@ export default function Navbar() {
                       <a href="/test">اپل</a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">مچ‌بند و ساعت هوشمند</a>
+                      <a href="/test"> مراقبت پوست و مو </a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">هدفون، هدست، هندزفری</a>
+                      <a href="/test"> عطر و ادکلن </a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">برندها</a>
+                      <a href="/test">لوازم شخصی برقی</a>
                     </li>
                   </ul>
                 </li>
-                <li className="sub-list-item" onClick={(event) => activeListHandler(event)}>
-                 خانه و آشپزخانه
+                <li
+                  className="sub-list-item"
+                  onClick={(event) => activeListHandler(event)}
+                >
+                  خانه و آشپزخانه
                   <ul class="row">
                     <li class="sublist--title">
-                      <a href="/test">لوازم جانبی گوشی</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">کیف و کاور گوشی</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">پاور بانک (شارژر همراه)</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">پایه نگهدارنده گوشی</a>
+                      <a href="/test">ظروف پخت و پز </a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">گوشی موبایل</a>
+                      <a href="/test"> حمام</a>
+                    </li>
+                    <li class="sublist--title">
+                      <a href="/test"> سرویس بهداشتی </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">سامسونگ</a>
+                      <a href="/test">دکوراسیون</a>
                     </li>
+                  </ul>
+                </li>
+                <li
+                  className="sub-list-item"
+                  onClick={(event) => activeListHandler(event)}
+                >
+                  کتاب، لوازم تحریر و هنر
+                  <ul class="row">
                     <li class="sublist--item">
-                      <a href="/test">هوآوی</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">لنز</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">کیف</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">کارت حافظه</a>
+                      <a href="/test">کتاب و مجله </a>
                     </li>
                     <li class="sublist--item">
                       <a href="/test">کاغذ چاپ عکس</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">دوربین دوچشمی و شکاری</a>
+                      <a href="/test"> دفترچه </a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">لوازم جانبی گوشی</a>
+                      <a href="/test">محبوب ترین اثار </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">کیف و کاور گوشی</a>
+                      <a href="/test"> کافکا</a>
                     </li>
+
                     <li class="sublist--item">
-                      <a href="/test">پاور بانک (شارژر همراه)</a>
+                      <a href="/test"> صادق هدابت</a>
                     </li>
+
                     <li class="sublist--item">
-                      <a href="/test">پایه نگهدارنده گوشی</a>
+                      <a href="/test"> شاملو</a>
+                    </li>
+
+                    <li class="sublist--item">
+                      <a href="/test"> اندره ژید</a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">گوشی موبایل</a>
+                      <a href="/test">الات موسیقی </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">سامسونگ</a>
+                      <a href="/test">گیتار</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">هوآوی</a>
+                      <a href="/test">پیانو</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">اپل</a>
+                      <a href="/test">سنتور</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">شیائومی</a>
+                      <a href="/test">ساکسیفون</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">آنر</a>
+                      <a href="/test">ساز نقاره</a>
                     </li>
-                    <li class="sublist--item">
-                      <a href="/test">نوکیا</a>
+
+                    <li class="sublist--title">
+                      <a href="/test">صنایع دستی </a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">واقعیت مجازی</a>
+                      <a href="/test">فرش ماشینی </a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">مچ‌بند و ساعت هوشمند</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">هدفون، هدست، هندزفری</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">برندها</a>
+                      <a href="/test"> لوازم تحریر </a>
                     </li>
                   </ul>
                 </li>
-                <li className="sub-list-item" onClick={(event) => activeListHandler(event)}>
-                 کتاب، لوازم تحریر و هنر
-                  <ul class="row">
-                    <li class="sublist--item">
-                      <a href="/test">کارت حافظه</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">کاغذ چاپ عکس</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">دوربین دوچشمی و شکاری</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">لوازم جانبی گوشی</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">کیف و کاور گوشی</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">پاور بانک (شارژر همراه)</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">پایه نگهدارنده گوشی</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">گوشی موبایل</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">سامسونگ</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">هوآوی</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">اپل</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">شیائومی</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">آنر</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">نوکیا</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">واقعیت مجازی</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">مچ‌بند و ساعت هوشمند</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">هدفون، هدست، هندزفری</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">برندها</a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="sub-list-item" onClick={(event) => activeListHandler(event)}>
-                 اسباب بازی، کودک و نوزاد
+                <li
+                  className="sub-list-item"
+                  onClick={(event) => activeListHandler(event)}
+                >
+                  اسباب بازی، کودک و نوزاد
                   <ul class="row">
                     <li class="sublist--title">
-                      <a href="/test">لوازم جانبی گوشی</a>
+                      <a href="/test">بهداشت و حمام کودک و نوزاد </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">کیف و کاور گوشی</a>
+                      <a href="/test"> پوشک</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">لنز</a>
+                      <a href="/test">وان</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">کیف</a>
+                      <a href="/test">مینی واش</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">کارت حافظه</a>
+                      <a href="/test"> حوله</a>
+                    </li>
+
+                    <li class="sublist--title">
+                      <a href="/test">اسباب بازی </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">کاغذ چاپ عکس</a>
+                      <a href="/test"> فکری </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">دوربین دوچشمی و شکاری</a>
+                      <a href="/test">ماشین بازی</a>
+                    </li>
+                    <li class="sublist--item">
+                      <a href="/test">عروسک </a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">لوازم جانبی گوشی</a>
+                      <a href="/test">خواب کودک</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">کیف و کاور گوشی</a>
+                      <a href="/test">تخت</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">پاور بانک (شارژر همراه)</a>
+                      <a href="/test">بالشت</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">پایه نگهدارنده گوشی</a>
+                      <a href="/test">پتو</a>
+                    </li>
+                    <li class="sublist--item">
+                      <a href="/test">شبخواب</a>
+                    </li>
+
+                    <li class="sublist--title">
+                      <a href="/test"> خلاقیت</a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">گوشی موبایل</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">سامسونگ</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">هوآوی</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">اپل</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">شیائومی</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">آنر</a>
-                    </li>
-                    <li class="sublist--item">
-                      <a href="/test">نوکیا</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">واقعیت مجازی</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">مچ‌بند و ساعت هوشمند</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">هدفون، هدست، هندزفری</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">برندها</a>
+                      <a href="/test">سلامت کودک </a>
                     </li>
                   </ul>
                 </li>
-                <li className="sub-list-item" onClick={(event) => activeListHandler(event)}>
+                <li
+                  className="sub-list-item"
+                  onClick={(event) => activeListHandler(event)}
+                >
                   ورزش و سفر
                   <ul class="row">
                     <li class="sublist--title">
-                      <a href="/test">لوازم جانبی گوشی</a>
+                      <a href="/test">پوشاک ورزشی مردانه </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">کیف و کاور گوشی</a>
+                      <a href="/test">کفش کوهنوردی</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">پاور بانک (شارژر همراه)</a>
+                      <a href="/test"> شلوار کوهنوردی</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">پایه نگهدارنده گوشی</a>
+                      <a href="/test">دستکش </a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">گوشی موبایل</a>
+                      <a href="/test">پوشاک ورزشی زنانه </a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">سامسونگ</a>
+                      <a href="/test">کفش</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">هوآوی</a>
+                      <a href="/test">شلوار</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">اپل</a>
+                      <a href="/test">روسری</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">شیائومی</a>
+                      <a href="/test">هدبند</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">آنر</a>
+                      <a href="/test">قمقمه</a>
                     </li>
-                    <li class="sublist--item">
-                      <a href="/test">نوکیا</a>
+
+                    <li class="sublist--title">
+                      <a href="/test">ورزش های توپی </a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">هدفون، هدست، هندزفری</a>
-                    </li>
-                    <li class="sublist--title">
-                      <a href="/test">برندها</a>
+                      <a href="/test">اسکوتر برقی</a>
                     </li>
                   </ul>
                 </li>
-                <li className="sub-list-item" onClick={(event) => activeListHandler(event)}>
-                  خوردنی و آشامیدنی
+                <li
+                  className="sub-list-item"
+                  onClick={(event) => activeListHandler(event)}
+                >
+                  سوپر مارکت انلاین
                   <ul class="row">
                     <li class="sublist--title">
-                      <a href="/test">لوازم جانبی گوشی</a>
+                      <a href="/test"> صبحانه</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">کیف و کاور گوشی</a>
+                      <a href="/test"> پنیر</a>
                     </li>
                     <li class="sublist--item">
-                      <a href="/test">پاور بانک (شارژر همراه)</a>
+                      <a href="/test"> شیر</a>
                     </li>
                     <li class="sublist--title">
-                      <a href="/test">برندها</a>
+                      <a href="/test">ناهار</a>
+                    </li>
+                    <li class="sublist--item">
+                      <a href="/test"> ساندویج</a>
+                    </li>
+                    <li class="sublist--item">
+                      <a href="/test"> نان</a>
+                    </li>
+                    <li class="sublist--item">
+                      <a href="/test"> سوسیس</a>
+                    </li>
+                    <li class="sublist--item">
+                      <a href="/test"> نوشابه</a>
                     </li>
                   </ul>
                 </li>
@@ -569,98 +506,92 @@ export default function Navbar() {
               <ul class="sub-menu nav">
                 <li class="list-item list-item-has-children">
                   <a class="nav-link" href="/test">
-                    عنوان دسته
+                    مراقبت و زیبایی مو
                   </a>
                   <ul class="sub-menu nav">
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو یک
+                        شامپو مو
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو دو
+                        نرم کننده مو
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو سه
+                        مراقبت مو
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو چهار
+                        رنگ مو
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو پنج
-                      </a>
-                    </li>
-                    <li class="list-item">
-                      <a class="nav-link" href="/test">
-                        زیر منو شش
-                      </a>
-                    </li>
-                    <li class="list-item">
-                      <a class="nav-link" href="/test">
-                        زیر منو هفت
+                        تافت
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li class="list-item list-item-has-children">
                   <a class="nav-link" href="/test">
-                    عنوان دسته
+                    عطر و ادکلن
                   </a>
                   <ul class="sub-menu nav">
                     <li class="list-item">
                       <a class="nav-link" href="/test">
                         <i class="mdi mdi-brightness-percent"></i>
-                        زیر منو یک
+                        تام فورد
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
                         <i class="mdi mdi-brightness-percent"></i>
-                        زیر منو دو
+                        بلک افغان
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
                         <i class="mdi mdi-brightness-percent"></i>
-                        زیر منو سه
+                        رویال
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
                         <i class="mdi mdi-brightness-percent"></i>
-                        زیر منو چهار
+                        فارنهایت
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
                         <i class="mdi mdi-brightness-percent"></i>
-                        زیر منو پنج
+                        بلک
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
                         <i class="mdi mdi-brightness-percent"></i>
-                        زیر منو شش
+                        گوچی
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
                         <i class="mdi mdi-brightness-percent"></i>
-                        زیر منو هفت
+                        دیور
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li class="list-item">
                   <a href="/test">
-                    <img src="./img/theme/mega-menu.jpg" style={{height:"100%"}} alt="" />
+                    <img
+                      src="./img/theme/mega-menu.jpg"
+                      style={{ height: "100%" }}
+                      alt=""
+                    />
                   </a>
                 </li>
               </ul>
@@ -673,158 +604,136 @@ export default function Navbar() {
               <ul class="sub-menu nav">
                 <li class="list-item list-item-has-children">
                   <a class="nav-link" href="/test">
-                    عنوان دسته
+                    ابزار برقی
                   </a>
                   <ul class="sub-menu nav">
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو یک
+                        فرز
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو دو
+                        موتور برق
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو سه
+                        جارو برقی
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو چهار
+                        مکنده-دمنده
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو پنج
+                        کارواش
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو شش
+                        هویه
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو هفت
+                        مولتی متر
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو هشت
+                        کمپرسور
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو نه
+                        ابزار برش{" "}
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li class="list-item list-item-has-children">
                   <a class="nav-link" href="/test">
-                    عنوان دسته
+                    ابزار غیر برقی
                   </a>
                   <ul class="sub-menu nav">
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو یک
+                        ابزار دستی
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو دو
+                        مجموعه ابزار
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو سه
+                        چسب صنعتی
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو چهار
+                        نوار برق
+                      </a>
+                    </li>
+                    <li class="list-item">
+                      چسب برق <a class="nav-link" href="/test"></a>
+                    </li>
+                    <li class="list-item">
+                      <a class="nav-link" href="/test">
+                        جعبه ابزار
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو پنج
-                      </a>
-                    </li>
-                    <li class="list-item">
-                      <a class="nav-link" href="/test">
-                        زیر منو شش
-                      </a>
-                    </li>
-                    <li class="list-item">
-                      <a class="nav-link" href="/test">
-                        زیر منو هفت
+                        نظم دهنده
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li class="list-item list-item-has-children">
                   <a class="nav-link" href="/test">
-                    عنوان دسته
+                    حفاظت و امنیت
                   </a>
                   <ul class="sub-menu nav">
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو یک
+                        گاوصندوق
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو دو
-                      </a>
-                    </li>
-                    <li class="list-item">
-                      <a class="nav-link" href="/test">
-                        زیر منو سه
-                      </a>
-                    </li>
-                    <li class="list-item">
-                      <a class="nav-link" href="/test">
-                        زیر منو چهار
-                      </a>
-                    </li>
-                    <li class="list-item">
-                      <a class="nav-link" href="/test">
-                        زیر منو پنج
-                      </a>
-                    </li>
-                    <li class="list-item">
-                      <a class="nav-link" href="/test">
-                        زیر منو شش
+                        قفل
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li class="list-item list-item-has-children">
                   <a class="nav-link" href="/test">
-                    عنوان دسته
+                    دکور
                   </a>
                   <ul class="sub-menu nav">
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو یک
+                        چوب
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو دو
+                        کناف
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو سه
+                        دامپا
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو چهار
+                        متر
                       </a>
                     </li>
                   </ul>
@@ -839,32 +748,32 @@ export default function Navbar() {
               <ul class="sub-menu nav">
                 <li class="list-item">
                   <a class="nav-link" href="/test">
-                    زیر منو یک
+                    میز ناهار خوری
                   </a>
                 </li>
                 <li class="list-item">
                   <a class="nav-link" href="/test">
-                    زیر منو دو
+                    ظروف اشپزی
                   </a>
                 </li>
                 <li class="list-item list-item-has-children">
                   <a class="nav-link" href="/test">
-                    زیر منو سه
+                    وسایل نظافت
                   </a>
                   <ul class="sub-menu nav">
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو سه - یک
+                        تی
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو سه - دو
+                        جارو
                       </a>
                     </li>
                     <li class="list-item">
                       <a class="nav-link" href="/test">
-                        زیر منو سه - سه
+                        جاروبرقی
                       </a>
                     </li>
                   </ul>
@@ -879,13 +788,23 @@ export default function Navbar() {
           </ul>
           <div class="nav mr-auto">
             <div class="nav-item cart--wrapper">
-              <a class="nav-link" href="/test">
-                <span class="label-dropdown">سبد خرید</span>
-                <ShoppingCartIcon/>
-                <span class="count">3</span>
-              </a>
-               <ShoppingCart />
-             
+              {isAuthenticated ? (
+                <>
+                  <Link class="nav-link" to="/cart">
+                    <span class="label-dropdown">سبد خرید</span>
+                    <ShoppingCartIcon />
+                    <span class="count">3</span>
+                  </Link>
+                  <ShoppingCart />
+                </>
+              ) : (
+                <>
+                  <Link class="nav-link" to="/error">
+                    <span class="label-dropdown">سبد خرید</span>
+                    <ShoppingCartIcon />
+                  </Link>
+                </>
+              )}
             </div>
           </div>
           <button class="btn-menu">
@@ -1102,5 +1021,3 @@ export default function Navbar() {
     </div>
   );
 }
-
-

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Home.css";
+import useLocalStorage from "../../Hooks/useLocalStorage";
 
 import BrandSlider from "../../Components/BrandSlider/BrandSlider";
 import CustomCarousel from "../../Components/Slider/SplideSlider";

@@ -27,6 +27,37 @@ header.main-header .bottom-header.scrolled {
   align-items: center;
   flex: 1;
 }
+.sub-list {
+  cursor: pointer;
+}
+
+.sub-list .sub-list-item {
+  background-color: #d4d4d4;
+}
+
+.sub-list .sub-list-item ul li a {
+ color: inherit;
+}
+
+.sub-list .sub-list-item ul li a:hover {
+ color: var(--primary);
+}
+
+.sub-list  .sub-list-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  height: 100%;
+  border: 1px solid var(--primary);
+
+}
+
+.sub-list .sub-list-item.active {
+  background-color: #ffffff;
+}
 .list-item {
   padding: 2px 19px;
   display: flex;
