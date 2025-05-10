@@ -1,6 +1,7 @@
 .App {
   display: flex; /* برای کنار هم قرار گرفتن سایدبار و محتوای اصلی */
   min-height: 100vh; /* برای اینکه کل صفحه پر بشه */
+  direction: rtl;
 }
 input,button {
   border: 0 !important;
@@ -20,15 +21,16 @@ a {
   display: flex;
   flex-direction: column; /* محتوا به‌صورت عمودی */
   padding: 20px; /* اختیاری: فاصله داخلی */
-  margin-top: 5px;
+  margin-top: 50px;
   justify-content: center;
   align-items: center;
 }
-.main-content-wrapper.scrolled {
-  flex: 1; /* برای پر کردن فضای باقی‌مانده */
+
+.main-content-wrapper .scrolled {
+   flex: 1; /* برای پر کردن فضای باقی‌مانده */
   display: flex;
   flex-direction: column; /* محتوا به‌صورت عمودی */
-  padding: 20px; /* اختیاری: فاصله داخلی */
+  padding: 20px; /* اختیاری: فاصله داخلی */ 
 }
 .main-content {
   flex: 1; /* برای پر کردن فضای باقی‌مانده */

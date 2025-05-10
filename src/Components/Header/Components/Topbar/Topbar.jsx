@@ -18,9 +18,9 @@ export default function Topbar() {
       <div class="row topbar-wrapper">
         <div class="col-lg-2 col-md-3 col-6">
           <div class="logo-area">
-            <a href="/test">
+            <Link to="/">
               <img src="./logo.png" alt="" />
-            </a>
+            </Link>
           </div>
         </div>
         <div class="col-lg-6 col-md-5 hidden-sm">
@@ -69,7 +69,7 @@ export default function Topbar() {
                   <AccountCircleIcon />
                 </Link>
                 <div class="dropdown-menu dropdown-menu-sm dropdown-menu-left">
-                  <Link to="/pofile" class="dropdown-item" href="/test">
+                  <Link to="/profile" class="dropdown-item" href="/test">
                     <PersonOutlinedIcon /> پروفایل
                   </Link>
                   <Link

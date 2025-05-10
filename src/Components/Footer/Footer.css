@@ -8,3 +8,33 @@
     margin: 0 0.5rem;
 
 }
+
+.didikala {
+    width: 100%;
+    padding: 20px;
+}
+
+.didikala ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    align-items: center;
+  gap: 10px;
+  margin: 0  !important;
+}
+.didikala ul li{
+font-size: 100px;
+font-weight: 700;
+cursor: pointer;
+transition: all ease 0.2s;
+
+}
+
+.didikala ul .kala-letters:hover{
+font-size: 100px;
+font-weight: 700;
+color: rgb(231 78 67);
+transform: translateY(-10px);
+cursor: pointer;
+transition: all ease 0.3s;
+}

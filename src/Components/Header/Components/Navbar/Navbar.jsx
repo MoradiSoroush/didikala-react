@@ -816,9 +816,9 @@ export default function Navbar() {
           </button>
           <div class="side-menu">
             <div class="logo-nav-res dt-sl text-center">
-              <a href="/test">
+              <Link to="/">
                 <img src="assets/img/logo.png" alt="" />
-              </a>
+              </Link>
             </div>
             <div class="search-box-side-menu dt-sl text-center mt-2 mb-3">
               <form action="">

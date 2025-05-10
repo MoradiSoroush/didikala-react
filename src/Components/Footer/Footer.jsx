@@ -9,11 +9,22 @@ export default function Footer() {
     <footer class="main-footer dt-sl">
       <div class="back-to-top">
         <a href="#">
-          
-          
           <span className="scale-up-top-normal">بازگشت به بالا</span>
            <KeyboardDoubleArrowUpIcon className="back-to-top__icon scale-up-top-normal"/>
         </a>
+      </div>
+      <div className="didikala">
+        <ul>
+          <li>D</li>
+          <li>I</li>
+          <li>D</li>
+          <li>I</li>
+          <li className="kala-letters">K</li>
+          <li className="kala-letters">A</li>
+          <li className="kala-letters">L</li>
+          <li className="kala-letters">A</li>
+        </ul>
+       
       </div>
    <MainFooterContent/>
    <Description />

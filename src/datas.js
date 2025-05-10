@@ -503,8 +503,126 @@ const SuggestionProductsData = [
     },
   ];
   
+  let historyProducts = [
+    {
+      id: 1,
+      name: "کت مردانه مجلسی مدل k-m-5110",
+      price: 200000,
+      rating: 4,
+      img: "./img/products/017.jpg"
+    },
+    {
+      id: 2,
+      name: "کت مردانه مجلسی مدل k-m-5110",
+      price: 140000,
+      rating: 2,
+      img: "./img/products/020.jpg"
+    },
+    {
+      id: 3,
+      name: "کت مردانه مجلسی مدل k-m-5110",
+      price: 250000,
+      rating: 4,
+      img: "./img/products/014.jpg"
+    },
+    {
+      id: 4,
+      name: "کت مردانه مجلسی مدل k-m-5110",
+      price: 400000,
+      rating: 3,
+      img: "./img/products/016.jpg"
+    },
+    {
+      id: 5,
+      name: "کت مردانه مجلسی مدل k-m-5110",
+      price: 320000,
+      rating: 5,
+      img: "./img/products/018.jpg"
+    }
+  ]
 
-
+  const userOrders = [
+    {
+      id: "DDC-57456951",
+      orderNumber: "DDC-57456951",
+      orderDate: "1398/05/31",
+      payableAmount: 0,
+      totalAmount: 9989000,
+      status: "لغو شده",
+    },
+    {
+      id: "DKC-45173498",
+      orderNumber: "DKC-45173498",
+      orderDate: "1398/03/10",
+      payableAmount: 0,
+      totalAmount: 18049000,
+      status: "لغو شده",
+    },
+    {
+      id: "DDC-58976951",
+      orderNumber: "DDC-58976951",
+      orderDate: "1398/05/21",
+      payableAmount: 0,
+      totalAmount: 9189000,
+      status: "لغو شده",
+    },
+    {
+      id: "ABC-12345678",
+      orderNumber: "ABC-12345678",
+      orderDate: "1399/01/15",
+      payableAmount: 2500000,
+      totalAmount: 7500000,
+      status: "در انتظار پرداخت",
+    },
+    {
+      id: "XYZ-98765432",
+      orderNumber: "XYZ-98765432",
+      orderDate: "1399/07/22",
+      payableAmount: 0,
+      totalAmount: 12499000,
+      status: "تکمیل شده",
+    },
+    {
+      id: "DDC-45678912",
+      orderNumber: "DDC-45678912",
+      orderDate: "1399/09/10",
+      payableAmount: 0,
+      totalAmount: 3499000,
+      status: "تکمیل شده",
+    },
+    {
+      id: "KLM-34567890",
+      orderNumber: "KLM-34567890",
+      orderDate: "1400/02/05",
+      payableAmount: 1200000,
+      totalAmount: 8200000,
+      status: "در انتظار پرداخت",
+    },
+    {
+      id: "RST-56789012",
+      orderNumber: "RST-56789012",
+      orderDate: "1400/04/18",
+      payableAmount: 0,
+      totalAmount: 15999000,
+      status: "لغو شده",
+    },
+    {
+      id: "PQR-78901234",
+      orderNumber: "PQR-78901234",
+      orderDate: "1400/06/30",
+      payableAmount: 0,
+      totalAmount: 6499000,
+      status: "تکمیل شده",
+    },
+    {
+      id: "UVW-90123456",
+      orderNumber: "UVW-90123456",
+      orderDate: "1400/08/12",
+      payableAmount: 500000,
+      totalAmount: 10999000,
+      status: "در انتظار پرداخت",
+    },
+  ];
 export {
     images,
     topSliderAsideImages,
@@ -514,5 +632,7 @@ export {
     offerProducts,
     brandImages,
     banners,
-    users
+    users,
+    historyProducts,
+    userOrders
 }

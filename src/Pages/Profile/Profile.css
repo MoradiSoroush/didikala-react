@@ -1,3 +1,6 @@
+.profile-row {
+    direction: rtl;
+}
 .profile-section {
     height: 310px;
     padding: 10px;
@@ -5,6 +8,7 @@
     background-color: #fff;
     border: 1px solid #eee;
     border-radius: 10px;
+    
 }
 
 .profile-section .label-info {
@@ -22,7 +26,8 @@
 
 .profile-section .list-favorites li {
     display: flex;
-    vertical-align: middle;
+    justify-content: space-between;
+    align-items: center;
     height: 60px;
     list-style: none;
     padding: 10px;
@@ -57,21 +62,7 @@
     border-radius: 25px;
 }
 
-.profile-section .list-favorites li button {
-    position: absolute;
-    left: 10px;
-    top: 12px;
-    width: 35px;
-    height: 35px;
-    line-height: 30px;
-    font-size: 20px;
-    border: 0;
-    border-radius: 12px;
-    background-color: #edf0f5;
-    color: #f7858d;
-    outline: none;
-    cursor: pointer;
-}
+
 
 a.border-bottom-dt {
     color: #f7858d;
@@ -86,3 +77,18 @@ a.border-bottom-dt {
     bottom: 15px;
     text-align: center;
 }
+
+.profile-section .list-favorites li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-section .list-favorites li button {
+background-color: transparent !important;
+}
+.profile-section .list-favorites li button svg{
+color: red  !important;
+}
+
+

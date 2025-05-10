@@ -94,33 +94,29 @@ export default function Widgets() {
             <p>ما را در شبکه های اجتماعی دنبال کنید.</p>
             <div class="footer-social">
               <ul class="text-center social-icons">
-                
-                  <li className="instagram-icon">
-                    <a href="#">
-<HoverTooltip title="اینستاگرام">
+                <li className="instagram-icon">
+                  <a href="#">
+                    <HoverTooltip title="اینستاگرام">
                       <InstagramIcon />
-</HoverTooltip>
-                    </a>
-                  </li>
-                
-                
-                  <li className="telegram-icon">
-                    <a href="#">
-<HoverTooltip title="تلگرام">
+                    </HoverTooltip>
+                  </a>
+                </li>
+
+                <li className="telegram-icon">
+                  <a href="#">
+                    <HoverTooltip title="تلگرام">
                       <TelegramIcon />
-</HoverTooltip>
-                    </a>
-                  </li>
-                
-                
-                  <li className="facebook-icon">
-                    <a href="#">
-<HoverTooltip title="فیس‌بوک">
+                    </HoverTooltip>
+                  </a>
+                </li>
+
+                <li className="facebook-icon">
+                  <a href="#">
+                    <HoverTooltip title="فیس‌بوک">
                       <FacebookIcon />
-</HoverTooltip>
-                    </a>
-                  </li>
-                
+                    </HoverTooltip>
+                  </a>
+                </li>
 
                 <li className="x-icon">
                   <a href="#">

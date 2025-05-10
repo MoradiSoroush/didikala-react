@@ -13,7 +13,7 @@ import LoginPage from "./Pages/Login/LoginPage";
 
 
 function App() {
- 
+
   let router = useRoutes(routes)
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,19 +46,18 @@ function App() {
       <CssBaseline />
 
       <div className="App">
-
+        
         <container className="container">
-           
-              <div className="sidebar" >
-              </div>
-              <div className="main-wrapper">
-                <Header />
-                <div className={isScrolled ? "main-content-wrapper scrolled" : "main-content-wrapper"}>
-                  {router}
-                </div>
-                <Footer />
-              </div>
-       </container>
+
+
+          <div className="main-wrapper">
+            <Header />
+            <div className={isScrolled ? "main-content-wrapper scrolled" : "main-content-wrapper"}>
+              {router}
+            </div>
+            <Footer />
+          </div>
+        </container>
 
       </div>
     </ThemeProvider>
