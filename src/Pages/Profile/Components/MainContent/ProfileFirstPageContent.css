@@ -1,0 +1,13 @@
+.orders-button-container button a{
+    padding: 10px !important;
+    border:1px solid  #1976d2;
+    color: #1976d2;
+    border-radius: 10px;
+}
+.orders-button-container button a:hover{
+    padding: 10px !important;
+    border:1px solid var(--primary) ;
+    background-color:  #1976d2;
+    color: #ffffffbf ;
+    border-radius: 10px;
+}

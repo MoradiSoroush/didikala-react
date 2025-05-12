@@ -1,30 +1,91 @@
-.custom-carousel {
-  max-width: 100%;
-  margin: 0 auto;
+/* SplideSlider.css */
+.custom-carousel-wrapper {
+  direction: rtl;
+  height: 346px;
+
 }
 
+.custom-carousel {
+  direction: rtl;
+}
+
+/* تنظیم فلش‌های ناوبری */
+.splide__arrow {
+  background: #f7858d; /* پس‌زمینه فلش‌ها */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+}
+
+.splide__arrow:hover {
+  background: #f7858dcc; /* حالت هاور */
+}
+
+.splide__arrow svg {
+  fill: #ffffff; /* رنگ آیکون فلش */
+}
+
+.splide__arrow:disabled {
+  opacity: 0.4;
+}
+
+.splide__arrow--prev {
+  right: 1rem; /* فلش قبلی سمت راست */
+  left: auto;
+}
+
+.splide__arrow--next {
+  left: 1rem; /* فلش بعدی سمت چپ */
+  right: auto;
+}
+
+/* تنظیم نقاط صفحه‌بندی */
+.splide__pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 30px; /* هماهنگ با SplideCategoryCarousel */
+}
+
+.splide__pagination__page {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f7858dcc; /* رنگ غیرفعال */
+  border: none;
+  cursor: pointer;
+  transition: width 0.3s ease, border-radius 0.3s ease;
+}
+
+.splide__pagination__page:hover {
+  background: #f7858d99; /* هاور نقاط غیرفعال */
+}
+
+.splide__pagination__page.is-active {
+  width: 20px; /* کشیده در حالت فعال */
+  height: 8px;
+  border-radius: 4px;
+  background: #f7858d; /* رنگ فعال */
+}
+
+/* تنظیم آیتم‌ها */
 .carousel-item {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  opacity: 1 !important;
-  border-radius: 12px;
-  overflow: hidden;
-}
-.splide-slide {
-  height: inherit;
-}
-.carousel-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
-.splide__list {
-  border-radius: 12px;
-  overflow: visible !important;
+.carousel-item img {
+  max-width: 100%;
+  height: auto;
 }
+
+/* جلوگیری از پرش‌ها */
 .splide__track {
-  height: 100% !important;
+  transition: transform 0.5s ease-in-out !important;
+  height: inherit;
 }

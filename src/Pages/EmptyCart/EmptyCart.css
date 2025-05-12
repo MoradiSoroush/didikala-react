@@ -490,7 +490,6 @@ input[type=number]::-webkit-outer-spin-button {
     line-height: 31px;
     letter-spacing: -.4;
     text-align: right;
-    direction: rtl;
     color: #777676;
 }
 
@@ -522,7 +521,6 @@ input[type=number]::-webkit-outer-spin-button {
     font-weight: 400;
     letter-spacing: -.3px;
     text-align: right;
-    direction: rtl;
     color: #777;
     margin-bottom: 0;
 }

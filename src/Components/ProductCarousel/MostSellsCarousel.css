@@ -1,19 +1,31 @@
 .product-card-content {
 display: flex;
 flex-direction: column;
-justify-content: start;
+justify-content: end;
 align-items: center;
 width: 100%;
 height: 100%;
-direction: rtl;
+
+}
+.mui-card-top-content {
+    display: flex !important;
+    width: 100%;
+    justify-content: space-between !important;
+    align-items: center !important;
+    position: relative;
 }
 .discount-chip{
     width: fit-content !important;
+    height: fit-content;
     background-color: #f86b75 !important;
+    
+
 }
+
 .discount-chip span{
 margin: 0 !important;
 padding: 0 !important;
+font-size: smaller;
 
 }
 .product-title,.product-price,.product-category {
@@ -37,3 +49,36 @@ text-align: start !important;
 .product-rating {
     margin-right: 8px !important;
 }
+.edit-button {
+    background-color: #f86b75 !important;
+    background: transparent !important;
+    border: 1px solid #f86b75 !important;
+    color: #f86b75 !important;
+    font-weight: bold !important;
+    font-size: 0.9rem !important;
+    padding: 6px 20px !important;
+    border-radius: 8px !important;
+    text-transform: none !important;
+    box-shadow: 0 2px 6px rgba(167, 40, 74, 0.5)  !important;
+    transition: all 0.3s ease !important;
+    margin: 10px 0 !important;
+  }
+  
+  .edit-button:hover {
+    background-color: #f86b75 !important;
+    box-shadow: 0 4px 12px rgba(167, 40, 74, 0.5) !important;
+    transform: translateY(-1px) !important;
+    color: #fff !important;
+  }
+  
+  .edit-button:active {
+    background-color: #f86b75 !important;
+    box-shadow: 0 2px 6px rgba(167, 40, 74, 0.5)  !important;
+    transform: translateY(0) !important;
+  }
+  
+  .edit-button:disabled {
+    background-color: #28a74580 !important;
+    color: #fff !important;
+    opacity: 0.6 !important;
+  }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './TeamOfferProducts.css'; // استایل‌ها جدا تعریف شدن
 import Rating from '../Rating/Rating';
-
+import { Button } from '@mui/material';
 
 const TeamOfferProducts = ({ products }) => {
     
@@ -47,9 +47,40 @@ const TeamOfferProducts = ({ products }) => {
                     <span>{product.price.toLocaleString()} تومان</span>
                   </div>
                   <div className="card-horizontal-product-buttons">
-                    <a href="#" className="btn btn-outline-info">
-                      جزئیات محصول
-                    </a>
+                  <Button
+        className='detail-button'
+  variant="contained" // استفاده از variant پرشده برای دکمه خرید
+  size="small"
+  sx={{
+    mt: 1,
+    backgroundColor: "#f86b75",
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: "0.9rem", 
+    padding: "6px 20px", 
+    borderRadius: "8px",
+    textTransform: "none",
+    boxShadow: "0 2px 6px rgba(248, 107, 117, 0.4)", 
+    transition: "all 0.3s ease",
+    "&:hover": {
+      backgroundColor: "#ff8290",  
+      boxShadow: "0 4px 12px rgba(248, 107, 117, 0.5)",  
+      transform: "translateY(-1px)", 
+    },
+    "&:active": {
+      backgroundColor: "#e55a64", 
+      boxShadow: "0 2px 6px rgba(248, 107, 117, 0.3)",
+      transform: "translateY(0)", 
+    },
+    "&:disabled": {
+      backgroundColor: "#f86b7580", 
+      color: "#fff",
+      opacity: 0.6,
+    },
+  }}
+>
+  خرید
+</Button>
                   </div>
                 </div>
               </div>

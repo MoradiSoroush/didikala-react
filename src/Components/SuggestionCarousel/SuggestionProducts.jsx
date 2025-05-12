@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import Rating from "../Rating/Rating"
-import {Box,Typography,Button,Card,CardMedia,CardContent,Chip,LinearProgress} from '@mui/material';
+import React, { useState, useEffect, useRef } from 'react';
+import Rating from "../Rating/Rating";
+import { Box, Typography, Button, Card, CardMedia, CardContent, Chip, LinearProgress } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -11,6 +11,7 @@ const CarouselContainer = styled(Box)(({ theme }) => ({
   width: '100%',
   margin: 'auto',
   overflow: 'hidden',
+  direction: 'rtl', // تنظیم جهت RTL برای کانتینر
 }));
 
 const CarouselTrack = styled(Box)(({ theme }) => ({
@@ -31,7 +32,7 @@ const ProductCard = styled(Card)(({ theme }) => ({
 const DiscountChip = styled(Chip)(({ theme }) => ({
   position: 'absolute',
   top: theme.spacing(1),
-  right: theme.spacing(1),
+  left: theme.spacing(1), // تغییر از right به left برای RTL
   backgroundColor: theme.palette.error.main,
   color: theme.palette.common.white,
   fontWeight: 'bold',
@@ -52,11 +53,11 @@ const NavigationButton = styled(Button)(({ theme }) => ({
 }));
 
 const PrevButton = styled(NavigationButton)({
-  left: 10,
+  right: 10, // تغییر از left به right برای RTL
 });
 
 const NextButton = styled(NavigationButton)({
-  right: 10,
+  left: 10, // تغییر از right به left برای RTL
 });
 
 const ProgressBarContainer = styled(Box)(({ theme }) => ({
@@ -94,7 +95,7 @@ const PaginationDot = styled(Box)(({ theme, active }) => ({
 
 const SuggestionProductCarousel = ({
   products = [],
-  cardWidth = "100%",
+  cardWidth = 300,
   cardBackground = null,
   showCategory = true,
   showPrice = true,
@@ -107,29 +108,34 @@ const SuggestionProductCarousel = ({
   activeDotColor = 'primary.main',
   inactiveDotColor = 'grey.400',
 }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(itemsPerPage); // شروع از موقعیت کپی‌های ابتدایی
   const [progress, setProgress] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const trackRef = useRef(null);
 
-  useEffect(() => {
+  // تعداد آیتم‌های اضافی برای لوپ (کپی‌های ابتدا و انتها)
+  const extraItems = itemsPerPage;
 
-      console.log(products)
-  },[])
+  // ایجاد لیست محصولات با کپی‌های اضافی
+  const extendedProducts = [
+    ...products.slice(-extraItems), // کپی محصولات آخر برای ابتدا
+    ...products,
+    ...products.slice(0, extraItems), // کپی محصولات ابتدا برای انتها
+  ];
 
-
-  // محاسبه تعداد کل صفحات
+  // محاسبه تعداد کل صفحات واقعی (بدون کپی‌ها)
   const totalPages = Math.ceil(products.length / itemsPerPage);
 
   // عرض هر صفحه
   const pageWidth = itemsPerPage * (cardWidth + 16); // 16 برای margin بین کارت‌ها
 
-  // اتوپلی و پروگرس بار
+  // مدیریت اتوپلی و پروگرس بار
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex === totalPages - 1 ? 0 : prevIndex + 1));
+      setCurrentIndex((prevIndex) => prevIndex + 1);
       setProgress(0); // ریست پروگرس بار
     }, autoplaySpeed);
 
-    // انیمیشن پروگرس بار
     const progressInterval = setInterval(() => {
       setProgress((prev) => Math.min(prev + 100 / (autoplaySpeed / 100), 100));
     }, 100);
@@ -138,25 +144,44 @@ const SuggestionProductCarousel = ({
       clearInterval(interval);
       clearInterval(progressInterval);
     };
-  }, [autoplaySpeed, totalPages]);
+  }, [autoplaySpeed]);
+
+  // مدیریت انتقال‌ها برای لوپ بی‌نهایت
+  useEffect(() => {
+    if (currentIndex === 0) {
+      // وقتی به کپی‌های ابتدایی رسیدیم، به انتهای لیست اصلی بپرید
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(totalPages);
+      }, 500); // زمان همگام با transition
+    } else if (currentIndex === totalPages + extraItems) {
+      // وقتی به کپی‌های انتهایی رسیدیم، به ابتدای لیست اصلی بپرید
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(extraItems);
+      }, 500); // زمان همگام با transition
+    } else {
+      setIsTransitioning(true);
+    }
+  }, [currentIndex, totalPages, extraItems]);
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? totalPages - 1 : prevIndex - 1));
-    setProgress(0); // ریست پروگرس بار
+    setCurrentIndex((prevIndex) => prevIndex - 1);
+    setProgress(0);
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === totalPages - 1 ? 0 : prevIndex + 1));
-    setProgress(0); // ریست پروگرس بار
+    setCurrentIndex((prevIndex) => prevIndex + 1);
+    setProgress(0);
   };
 
   const handleDotClick = (index) => {
-    setCurrentIndex(index);
-    setProgress(0); // ریست پروگرس بار
+    setCurrentIndex(index + extraItems); // تنظیم با در نظر گرفتن کپی‌های ابتدایی
+    setProgress(0);
   };
 
   return (
-    <Box>
+    <Box sx={{ direction: 'rtl' }}> {/* اطمینان از RTL بودن کل کامپوننت */}
       {/* پروگرس بار */}
       <ProgressBarContainer>
         <StyledLinearProgress
@@ -171,34 +196,53 @@ const SuggestionProductCarousel = ({
       </ProgressBarContainer>
       {/* کاروسل */}
       <CarouselContainer>
-        <CarouselTrack sx={{ transform: `translateX(-${currentIndex * pageWidth}px)` }}>
-          {products.map((product) => (
-            <div class="item">
-            <div class="product-card mb-3 shadow-unset">
-                <div class="product-head">
-                    <div class="rating-stars">
-                       <Rating score={product.rating} />
-                    </div>
-                </div>
-                <a class="product-thumb" href="shop-single.html">
-                    <img src={product.image} alt="Product Thumbnail"/>
-                </a>
-                <div class="product-card-body">
-                    <h5 class="product-title">
-                        <a href="shop-single.html">{product.name} </a>
-                    </h5>
-                    <a class="product-meta" href="shop-categories.html"> {product.category}</a>
-                    <span class="product-price">{product.price} تومان</span>
-                </div>
-            </div>
-        </div>
+        <CarouselTrack
+          ref={trackRef}
+          sx={{
+            transform: `translateX(${currentIndex * pageWidth}px)`, // معکوس کردن جهت translateX برای RTL
+            transition: isTransitioning ? 'transform 0.5s ease-in-out' : 'none',
+          }}
+        >
+          {extendedProducts.map((product, index) => (
+            <ProductCard key={index} cardWidth={cardWidth} cardBackground={cardBackground} className='product-card'>
+              <CardContent className='carousel-content'>
+                {showRating && (
+                  <Box className="rating-stars">
+                    <Rating score={product.rating} />
+                  </Box>
+                )}
+                {showDiscount && product.discount && (
+                  <DiscountChip label={`%${product.discount}`} />
+                )}
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={product.image}
+                  alt={product.name}
+                  sx={{ objectFit: 'contain' }}
+                />
+                <Typography variant="h6" component="h5" className="product-title">
+                  <a href="shop-single.html">{product.name}</a>
+                </Typography>
+                {showCategory && (
+                  <Typography variant="body2" className="product-meta">
+                    <a href="shop-categories.html">{product.category}</a>
+                  </Typography>
+                )}
+                {showPrice && (
+                  <Typography variant="body1" className="product-price">
+                    {product.price} تومان
+                  </Typography>
+                )}
+              </CardContent>
+            </ProductCard>
           ))}
         </CarouselTrack>
         <PrevButton onClick={handlePrev}>
-          <ArrowBackIosIcon />
+          <ArrowForwardIosIcon /> 
         </PrevButton>
         <NextButton onClick={handleNext}>
-          <ArrowForwardIosIcon />
+          <ArrowBackIosIcon /> 
         </NextButton>
       </CarouselContainer>
       {/* نقاط ناوبری */}
@@ -207,10 +251,13 @@ const SuggestionProductCarousel = ({
           {[...Array(totalPages)].map((_, index) => (
             <PaginationDot
               key={index}
-              active={index === currentIndex}
+              active={index === (currentIndex - extraItems) % totalPages}
               onClick={() => handleDotClick(index)}
               sx={{
-                backgroundColor: index === currentIndex ? activeDotColor : inactiveDotColor,
+                backgroundColor:
+                  index === (currentIndex - extraItems) % totalPages
+                    ? activeDotColor
+                    : inactiveDotColor,
               }}
             />
           ))}

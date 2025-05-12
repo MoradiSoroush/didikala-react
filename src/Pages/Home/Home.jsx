@@ -1,6 +1,5 @@
 import React from "react";
 import "./Home.css";
-import useLocalStorage from "../../Hooks/useLocalStorage";
 
 import BrandSlider from "../../Components/BrandSlider/BrandSlider";
 import CustomCarousel from "../../Components/Slider/SplideSlider";
@@ -8,9 +7,9 @@ import SplideProductCarousel from "../../Components/ProductCarousel/MostSellsCar
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import SplideCategoryCarousel from "../../Components/CategpriesSlider/CategoriesSlider";
+import SplideCategoryCarousel from "../../Components/CategoriesSlider/CategoriesSlider";
 import TeamOfferProducts from "../../Components/TeamOfferProducts/TeamOfferProducts";
-import {LargeBanner,SmallBannerList} from "../../Components/Banners/Banners";
+import { LargeBanner, SmallBannerList } from "../../Components/Banners/Banners";
 
 import {
   images,
@@ -20,7 +19,7 @@ import {
   categoryItems,
   offerProducts,
   brandImages,
-  banners
+  banners,
 } from "../../datas";
 
 export default function Home() {
@@ -29,22 +28,32 @@ export default function Home() {
       <main class="main-content">
         <div class="main-container">
           <Container>
-            <div class="home-top-slider">
-              <aside class="sidebar" style={{ marginTop: "0" }}>
-                <div class="sidebar-banner" style={{ marginTop: "0" }}>
+            <div className="home-top-slider">
+              <aside className="sidebar" style={{ marginTop: 0 }}>
+                <div className="sidebar-banner" style={{ marginTop: 0 }}>
                   <CustomCarousel
                     items={topSliderAsideImages}
                     options={{
                       type: "loop",
                       pagination: false,
                       arrows: false,
+                      direction: "rtl", 
                     }}
                   />
                 </div>
               </aside>
 
-              <section id="main-slider" class="main-slider">
-                <CustomCarousel items={images} />
+              <section id="main-slider" className="main-slider">
+                <CustomCarousel
+                  items={images} 
+                  options={{
+                    type: "loop",
+                    pagination: true,
+                    arrows: true,
+                    autoplay: true,
+                    direction: "rtl", 
+                  }}
+                />
               </section>
             </div>
 
@@ -86,11 +95,11 @@ export default function Home() {
                 </div>
               </Col>
             </Row>
-           
+
             <div className="section-banner">
               <SmallBannerList banners={banners} />
             </div>
-           
+
             <div class="row mt-3 mb-5">
               <div class="col-12">
                 <div class="category-section dt-sn dt-sl border">
@@ -110,12 +119,11 @@ export default function Home() {
                 products={mostSellsProducts}
                 cardWidth={"100%"}
               />
-          
             </section>
             <div class="row mt-3 mb-5">
               <div class="col-12">
                 <div class="widget-banner large-banner">
-                <LargeBanner banners={banners} />
+                  <LargeBanner banners={banners} />
                 </div>
               </div>
             </div>

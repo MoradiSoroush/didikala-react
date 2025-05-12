@@ -623,6 +623,211 @@ const SuggestionProductsData = [
       status: "در انتظار پرداخت",
     },
   ];
+
+  const Categories = [
+    {
+      name: "کالای دیجیتال",
+      subItems: [
+        { title: true, label: "لپتاپ", link: "/test" },
+        { title: false, label: "کیف و کاور گوشی", link: "/test" },
+        { title: false, label: "پاور بانک (شارژر همراه)", link: "/test" },
+        { title: false, label: "پایه نگهدارنده گوشی", link: "/test" },
+        { title: true, label: "گوشی موبایل", link: "/test" },
+        { title: false, label: "سامسونگ", link: "/test" },
+        { title: false, label: "هوآوی", link: "/test" },
+        { title: false, label: "اپل", link: "/test" },
+        { title: false, label: "شیائومی", link: "/test" },
+        { title: false, label: "آنر", link: "/test" },
+        { title: false, label: "نوکیا", link: "/test" },
+        { title: true, label: "واقعیت مجازی", link: "/test" },
+        { title: true, label: "مچ‌بند و ساعت هوشمند", link: "/test" },
+        { title: true, label: "هدفون، هدست، هندزفری", link: "/test" },
+        { title: true, label: "اسپیکر بلوتوث و با سیم", link: "/test" },
+        { title: true, label: "هارد، فلش و SSD", link: "/test" },
+        { title: true, label: "دوربین", link: "/test" },
+        { title: false, label: "دوربین عکاسی دیجیتال", link: "/test" },
+        { title: false, label: "دوربین‌ ورزشی و فیلم برداری", link: "/test" },
+      ],
+    },
+    {
+      name: "خودرو، ابزار و تجهیزات صنعتی",
+      subItems: [
+        { title: true, label: "لوازم مصرفی خودرو", link: "/test" },
+        { title: false, label: "روغن موتور", link: "/test" },
+        { title: false, label: "فیلتر ها", link: "/test" },
+        { title: false, label: "باتری", link: "/test" },
+        { title: true, label: "لوازم یدکی خودرو", link: "/test" },
+        { title: false, label: "لوازم بدنه", link: "/test" },
+        { title: false, label: "چراغ", link: "/test" },
+        { title: false, label: "آینه", link: "/test" },
+        { title: false, label: "لوازم مکانیکی", link: "/test" },
+        { title: false, label: "فن کولر", link: "/test" },
+        { title: true, label: "لوازم جانبی خودرو", link: "/test" },
+        { title: false, label: "روکش", link: "/test" },
+        { title: false, label: "کف پوش", link: "/test" },
+        { title: false, label: "زنجیر چرخ", link: "/test" },
+        { title: false, label: "عایق موتور", link: "/test" },
+        { title: false, label: "پا رکابی", link: "/test" },
+      ],
+    },
+    {
+      name: "مد و پوشاک",
+      subItems: [
+        { title: true, label: "پوشاک مردانه", link: "/test" },
+        { title: false, label: "تیشرت", link: "/test" },
+        { title: false, label: "شلوار", link: "/test" },
+        { title: false, label: "کفش", link: "/test" },
+        { title: true, label: "پوشاک زنانه", link: "/test" },
+        { title: false, label: "تیشرت", link: "/test" },
+        { title: false, label: "شلوار", link: "/test" },
+        { title: false, label: "لباس زیر", link: "/test" },
+        { title: false, label: "جوراب", link: "/test" },
+        { title: false, label: "پوشاک بچگانه", link: "/test" },
+        { title: false, label: "شلوارک", link: "/test" },
+        { title: false, label: "دمپایی", link: "/test" },
+        { title: false, label: "شرت", link: "/test" },
+        { title: true, label: "لباس دخترانه", link: "/test" },
+        { title: true, label: "لباس پسرانه", link: "/test" },
+        { title: true, label: "پوشاک فری سایز", link: "/test" },
+        { title: true, label: "برندها", link: "/test" },
+      ],
+    },
+    {
+      name: "زیبایی و سلامت",
+      subItems: [
+        { title: true, label: "لوازم آرایش", link: "/test" },
+        { title: false, label: "کیف و کاور گوشی", link: "/test" },
+        { title: false, label: "پاور بانک (شارژر همراه)", link: "/test" },
+        { title: false, label: "پایه نگهدارنده گوشی", link: "/test" },
+        { title: true, label: "لوازم بهداشتی", link: "/test" },
+        { title: false, label: "سامسونگ", link: "/test" },
+        { title: false, label: "هوآوی", link: "/test" },
+        { title: false, label: "اپل", link: "/test" },
+        { title: true, label: "مراقبت پوست و مو", link: "/test" },
+        { title: true, label: "عطر و ادکلن", link: "/test" },
+        { title: true, label: "لوازم شخصی برقی", link: "/test" },
+      ],
+    },
+    {
+      name: "خانه و آشپزخانه",
+      subItems: [
+        { title: true, label: "ظروف پخت و پز", link: "/test" },
+        { title: true, label: "حمام", link: "/test" },
+        { title: true, label: "سرویس بهداشتی", link: "/test" },
+        { title: false, label: "دکوراسیون", link: "/test" },
+      ],
+    },
+    {
+      name: "کتاب، لوازم تحریر و هنر",
+      subItems: [
+        { title: false, label: "کتاب و مجله", link: "/test" },
+        { title: false, label: "کاغذ چاپ عکس", link: "/test" },
+        { title: false, label: "دفترچه", link: "/test" },
+        { title: true, label: "محبوب‌ترین آثار", link: "/test" },
+        { title: false, label: "کافکا", link: "/test" },
+        { title: false, label: "صادق هدایت", link: "/test" },
+        { title: false, label: "شاملو", link: "/test" },
+        { title: false, label: "اندره ژید", link: "/test" },
+        { title: true, label: "آلات موسیقی", link: "/test" },
+        { title: false, label: "گیتار", link: "/test" },
+        { title: false, label: "پیانو", link: "/test" },
+        { title: false, label: "سنتور", link: "/test" },
+        { title: false, label: "ساکسیفون", link: "/test" },
+        { title: false, label: "ساز نقاره", link: "/test" },
+        { title: true, label: "صنایع دستی", link: "/test" },
+        { title: true, label: "فرش ماشینی", link: "/test" },
+        { title: true, label: "لوازم تحریر", link: "/test" },
+      ],
+    },
+    {
+      name: "اسباب بازی، کودک و نوزاد",
+      subItems: [
+        { title: true, label: "بهداشت و حمام کودک و نوزاد", link: "/test" },
+        { title: false, label: "پوشک", link: "/test" },
+        { title: false, label: "وان", link: "/test" },
+        { title: false, label: "مینی واش", link: "/test" },
+        { title: false, label: "حوله", link: "/test" },
+        { title: true, label: "اسباب بازی", link: "/test" },
+        { title: false, label: "فکری", link: "/test" },
+        { title: false, label: "ماشین بازی", link: "/test" },
+        { title: false, label: "عروسک", link: "/test" },
+        { title: true, label: "خواب کودک", link: "/test" },
+        { title: false, label: "تخت", link: "/test" },
+        { title: false, label: "بالشت", link: "/test" },
+        { title: false, label: "پتو", link: "/test" },
+        { title: false, label: "شبخواب", link: "/test" },
+        { title: true, label: "خلاقیت", link: "/test" },
+        { title: true, label: "سلامت کودک", link: "/test" },
+      ],
+    },
+    {
+      name: "ورزش و سفر",
+      subItems: [
+        { title: true, label: "پوشاک ورزشی مردانه", link: "/test" },
+        { title: false, label: "کفش کوهنوردی", link: "/test" },
+        { title: false, label: "شلوار کوهنوردی", link: "/test" },
+        { title: false, label: "دستکش", link: "/test" },
+        { title: true, label: "پوشاک ورزشی زنانه", link: "/test" },
+        { title: false, label: "کفش", link: "/test" },
+        { title: false, label: "شلوار", link: "/test" },
+        { title: false, label: "روسری", link: "/test" },
+        { title: false, label: "هدبند", link: "/test" },
+        { title: false, label: "قمقمه", link: "/test" },
+        { title: true, label: "ورزش‌های توپی", link: "/test" },
+        { title: true, label: "اسکوتر برقی", link: "/test" },
+      ],
+    },
+    {
+      name: "سوپر مارکت آنلاین",
+      subItems: [
+        { title: true, label: "صبحانه", link: "/test" },
+        { title: false, label: "پنیر", link: "/test" },
+        { title: false, label: "شیر", link: "/test" },
+        { title: true, label: "ناهار", link: "/test" },
+        { title: false, label: "ساندویچ", link: "/test" },
+        { title: false, label: "نان", link: "/test" },
+        { title: false, label: "سوسیس", link: "/test" },
+        { title: false, label: "نوشابه", link: "/test" },
+      ],
+    },
+  ];
+
+
+
+  const userCart = [
+    {
+      id: 1,
+      title: "کت مردانه مجلسی مدل k-m-5110",
+      price: 200000,
+      rating: 4,
+      quantity:1,
+      color:"black",
+
+      img: "./img/products/017.jpg"
+    },
+    {
+      id: 2,
+      title: "کت مردانه مجلسی مدل k-m-5110",
+      price: 140000,
+      rating: 2,
+      quantity:2,
+      color:"red",
+      img: "./img/products/020.jpg"
+    },
+    {
+      id: 3,
+      title: "کت مردانه مجلسی مدل k-m-5110",
+      price: 250000,
+      rating: 4,
+      quantity:3,
+      color:"blue",
+      img: "./img/products/014.jpg"
+    },
+  
+  ]
+
+
+
 export {
     images,
     topSliderAsideImages,
@@ -634,5 +839,7 @@ export {
     banners,
     users,
     historyProducts,
-    userOrders
+    userOrders,
+    Categories,
+    userCart
 }

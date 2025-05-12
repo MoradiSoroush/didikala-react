@@ -18,15 +18,16 @@ const BrandSlider = ({
     arrows: true,
     autoplay: true,
     interval: 3000, // فاصله زمانی اتوپلی (3 ثانیه)
+    direction: 'rtl', // تنظیم جهت RTL برای Splide
     breakpoints: {
-      768: { perPage: 3 }, // 3 آیتم در موبایل
-      576: { perPage: 2 }, // 2 آیتم در صفحه‌های خیلی کوچک
+      768: { perPage: 3, gap: '0.5rem' }, // 3 آیتم در موبایل با فاصله کمتر
+      576: { perPage: 2, gap: '0.5rem' }, // 2 آیتم در صفحه‌های خیلی کوچک
     },
-    ...options,
+    ...options, // اجازه می‌ده پراپس‌های خارجی، تنظیمات پیش‌فرض رو اوورراید کنن
   };
 
   return (
-    <div className="row">
+    <div className="row" dir="rtl"> {/* اضافه کردن dir="rtl" به کانتینر اصلی */}
       <div className="col-12">
         <Splide
           options={defaultOptions}

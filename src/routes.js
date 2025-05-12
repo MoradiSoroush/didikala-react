@@ -36,7 +36,7 @@ let routes = [
             { path: "/blogs/:id", element: <BlogDetail /> }
         ]
     },
-    { path: "/cart", element: <Cart /> },
+    { path: "/cart", element: <Cart/> },
     { path: "/login", element: <Login /> },
     { path: "/register", element: <Register /> },
     { path: "/privacy", element: <Privacy /> },

@@ -19,14 +19,15 @@ export default function Topbar() {
         <div class="col-lg-2 col-md-3 col-6">
           <div class="logo-area">
             <Link to="/">
-              <img src="./logo.png" alt="" />
+              <img src="./img/theme/logo.png" alt="didikala" />
             </Link>
           </div>
         </div>
         <div class="col-lg-6 col-md-5 hidden-sm">
           <div class="search-area dt-sl">
-            <form action="" class="search">
+            <form action="" className="search">
               <input
+                 style={{padding:"5px !important"}}
                 type="text"
                 placeholder="نام کالا، برند و یا دسته مورد نظر خود را جستجو کنید…"
               />

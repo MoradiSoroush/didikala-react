@@ -1,75 +1,92 @@
-import React from 'react';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import { Box, Typography, Rating, Card, CardMedia, CardContent, Chip } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import MostSellsProduct from '../product/MostSellsProduct';
-import "./MostSellsCarousel.css"; // استایل‌های سفارشی برای کاروسل
-import '@splidejs/react-splide/css/core';
+import React, { useState } from "react";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import {
+  Box,
+  Typography,
+  Rating,
+  Card,
+  CardMedia,
+  CardContent,
+  Chip,
+  Button,
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
+import MostSellsProduct from "../product/MostSellsProduct";
+import "./MostSellsCarousel.css";
+import "@splidejs/react-splide/css/core";
 
 // استایل‌های کارت
 const ProductCard = styled(Card)(({ theme }) => ({
   minWidth: ({ cardWidth }) => cardWidth,
   margin: theme.spacing(1),
-  marginBottom: '1rem', // فاصله زیر کارت‌ها
-  textAlign: 'center',
+  marginBottom: "1rem",
+  textAlign: "center",
   boxShadow: theme.shadows[3],
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: ({ cardBackground }) => cardBackground || theme.palette.background.paper,
-  position: 'relative',
+  backgroundColor: ({ cardBackground }) =>
+    cardBackground || theme.palette.background.paper,
+  position: "relative",
   flexShrink: 0,
 }));
 
 const DiscountChip = styled(Chip)(({ theme }) => ({
-  position: 'absolute',
+  position: "absolute",
   top: theme.spacing(1),
-  right: theme.spacing(1),
-  backgroundColor: theme.palette.error.main,
+  left: theme.spacing(1),
+  backgroundColor: "#f86b75",
   color: theme.palette.common.white,
-  fontWeight: 'bold',
+  fontWeight: "bold",
+  "& span": {
+      margin: 0,
+      padding: "2px 8px",
+  },
 }));
 
 // استایل‌های Splide
 const splideStyles = {
-  width: ({ cardWidth, perPage }) => `calc(${perPage * cardWidth}px + ${(perPage - 1) * 10}px)`, // عرض کانتینر
-  position: 'relative', // اطمینان از موقعیت صحیح کانتینر
-  '.splide__arrow': {
-    background: '#f7858d', // رنگ دکمه‌های ناوبری
+  width: ({ cardWidth, perPage }) => `calc(${perPage * (cardWidth + 10)}px)`,
+  margin: "auto",
+  direction: "rtl", // اضافه کردن جهت RTL به کانتینر
+  ".splide__arrow": {
+    background: "#f7858d",
     width: 40,
     height: 40,
-    borderRadius: '50%',
+    borderRadius: "50%",
     boxShadow: 2,
     opacity: 1,
-    '&:hover': { background: '#f7858dcc' },
-    '& svg': { fill: ({ arrowColor }) => arrowColor || '#ffffff' },
-    '&:disabled': { opacity: 0.4 },
+    "&:hover": { background: "#f7858dcc" },
+    "& svg": { fill: ({ arrowColor }) => arrowColor || "#ffffff" },
+    "&:disabled": { opacity: 0.4 },
   },
-  '.splide__arrow--prev': { left: 10 },
-  '.splide__arrow--next': { right: 10 },
-  '.splide__pagination': {
-    display: 'flex',
-    justifyContent: 'center',
+  ".splide__arrow--prev": { right: 10 }, // برعکس کردن موقعیت فلش‌ها
+  ".splide__arrow--next": { left: 10 },
+  ".splide__pagination": {
+    display: "flex",
+    justifyContent: "center",
     gap: 1,
-    marginTop: '30px', // فاصله 30px بین نقاط و کانتینر کاروسل
-    position: 'relative', // اطمینان از عدم همپوشانی
+    marginTop: "30px",
+    position: "relative",
   },
-  '.splide__pagination__page': {
-    width: 8, // دایره‌ای در حالت غیرفعال
+  ".splide__pagination__page": {
+    width: 8,
     height: 8,
-    borderRadius: '50%',
-    background: ({ inactiveDotColor }) => inactiveDotColor || 'grey.400',
-    border: 'none',
-    cursor: 'pointer',
-    transition: 'width 0.3s ease, border-radius 0.3s ease', // فقط تغییر شکل
-    '&:hover': { background: ({ inactiveDotColor }) => `${inactiveDotColor}cc` || 'grey.500' },
-    '&.is-active': {
-      width: 30, // کشیده در حالت فعال
+    borderRadius: "50%",
+    background: ({ inactiveDotColor }) => inactiveDotColor || "grey.400",
+    border: "none",
+    cursor: "pointer",
+    transition: "width 0.3s ease, border-radius 0.3s ease",
+    "&:hover": {
+      background: ({ inactiveDotColor }) =>
+        `${inactiveDotColor}cc` || "grey.500",
+    },
+    "&.is-active": {
+      width: 30,
       height: 8,
       borderRadius: 4,
-      background: ({ activeDotColor }) => activeDotColor || '#f7858d',
+      background: ({ activeDotColor }) => activeDotColor || "#f7858d",
     },
   },
 };
-
 const SplideProductCarousel = ({
   products = [],
   cardWidth = 200,
@@ -79,58 +96,139 @@ const SplideProductCarousel = ({
   showRating = true,
   showDiscount = true,
   itemsPerPage = 5,
-  autoplaySpeed = 30000,
+  autoplaySpeed = 5000, // کاهش به 5 ثانیه برای تجربه کاربری بهتر
   showPagination = true,
-  activeDotColor = '#f7858d',
-  inactiveDotColor = 'grey',
+  activeDotColor = "#f7858d",
+  inactiveDotColor = "grey",
   useMostSellsProduct = false,
-  arrowColor = '#ffffff',
-  arrowBackground = '#f7858d',
+  arrowColor = "#ffffff",
   showArrows = true,
   perPage = 5,
-  type = 'loop',
+  type = "loop",
 }) => {
-  // محاسبه تعداد صفحات
-  const totalPages = Math.ceil(products.length / itemsPerPage);
+  // مدیریت مدال ویرایش
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // محاسبه عرض هر کارت
-  const calculatedCardWidth = cardWidth / perPage;
+  // باز کردن مدال برای محصول انتخاب‌شده
+  const openEditModal = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const closeEditModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
+
+  const submitProductUpdate = (updatedData) => {
+    console.log("Updated product data:", updatedData);
+    // اینجا می‌توانید منطق به‌روزرسانی محصول (مثلاً ارسال به API) را اضافه کنید
+    closeEditModal();
+  };
+
+  // اگر محصولات کافی نباشد
+  if (products.length === 0) {
+    return <Typography>محصولی برای نمایش وجود ندارد</Typography>;
+  }
 
   const splideOptions = {
-    type,
-    perPage, // تعداد آیتم‌ها در هر صفحه
-    perMove: 1, // جابه‌جایی یکی‌یکی
-    gap: 10, // فاصله بین آیتم‌ها
-    pagination: showPagination && totalPages > 1, // نقاط فقط برای بیش از یک صفحه
-    arrows: showArrows && products.length > itemsPerPage,
-    autoplay: products.length > itemsPerPage,
+    type: products.length < perPage ? "slide" : type,
+    perPage: Math.min(perPage, products.length),
+    perMove: 1,
+    gap: 10,
+    pagination: showPagination && products.length > 1,
+    arrows: showArrows && products.length > perPage,
+    autoplay: products.length > perPage,
     interval: autoplaySpeed,
     pauseOnHover: true,
-    focus: 'center',
+    focus: 0, // غیرفعال کردن focus برای محصولات کم
+    direction: "rtl", // اضافه کردن جهت RTL
   };
 
   return (
-    <Box sx={splideStyles} cardWidth={calculatedCardWidth} perPage={perPage} activeDotColor={activeDotColor} inactiveDotColor={inactiveDotColor} arrowColor={arrowColor} arrowBackground={arrowBackground}>
+    <Box
+      sx={splideStyles}
+      cardWidth={cardWidth}
+      perPage={perPage}
+      activeDotColor={activeDotColor}
+      inactiveDotColor={inactiveDotColor}
+      arrowColor={arrowColor}
+    >
       <Splide options={splideOptions} aria-label="Product Carousel">
         {products.map((product) => (
           <SplideSlide key={product.id}>
             {useMostSellsProduct ? (
               <MostSellsProduct product={product} />
             ) : (
-              <ProductCard cardWidth={calculatedCardWidth} cardBackground={cardBackground}>
-                {showDiscount && product.discount && <DiscountChip label={`${product.discount} `} className='discount-chip'/>}
-                <CardMedia component="img" height="200" image={product.image} alt={product.name} className='product-iamge'/>
+              <ProductCard
+                cardWidth={cardWidth}
+                cardBackground={cardBackground}
+              >
+                <div className="mui-card-top-content">
+                  {showDiscount && product.discount && (
+                    <DiscountChip
+                      label={`%${product.discount}`}
+                      className="discount-chip"
+                    />
+                  )}
+                  {showRating && (
+                    <Rating
+                      name={`rating-${product.id}`}
+                      value={product.rating}
+                      readOnly
+                      precision={1}
+                      sx={{ mt: 1 }}
+                      className="product-rating"
+                    />
+                  )}
+                </div>
+
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image={product.image}
+                  alt={product.name}
+                  className="product-image"
+                />
                 <CardContent className="product-card-content">
-                  <Typography variant="h6" gutterBottom className='product-title'>
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    className="product-title"
+                  >
                     <a href="shop-single.html">{product.name}</a>
                   </Typography>
                   {showCategory && (
-                    <Typography variant="body2" color="text.secondary" component="a" href="shop-categories.html" sx={{ textDecoration: 'none', display: 'block', mb: 1 }} className='product-category'>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      component="a"
+                      href="shop-categories.html"
+                      sx={{ textDecoration: "none", display: "block", mb: 1 }}
+                      className="product-category"
+                    >
                       {product.category}
                     </Typography>
                   )}
-                  {showPrice && <Typography variant="h6" color="black" className='product-price'>{product.price}</Typography>}
-                  {showRating && <Rating name={`rating-${product.id}`} value={product.rating} readOnly precision={1} sx={{ mt: 1 }} className='product-rating'/>}
+                  {showPrice && (
+                    <Typography
+                      variant="h6"
+                      color="black"
+                      className="product-price"
+                    >
+                      {product.price} تومان
+                    </Typography>
+                  )}
+
+<Button
+  variant="outlined"
+  size="small"
+  onClick={() => openEditModal(product)}
+ className="edit-button"
+>
+خرید
+</Button>
                 </CardContent>
               </ProductCard>
             )}

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ProfileMenu from "../ProfileMenuSection/ProfileMenu";
 
 export default function EditUserInfo() {
-  const [open, setOpen] = useState(false);
 
   return (
     <div>

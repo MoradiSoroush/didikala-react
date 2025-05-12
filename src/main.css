@@ -536,8 +536,7 @@ header.main-header .nav-item {
 
 header.main-header .nav-item.account {
     border: 1px solid #e0e0e2;
-    border-radius: 7px;
-    padding: 0 12px;
+    border-radius: 10px;
 }
 
 header.main-header .nav-link {

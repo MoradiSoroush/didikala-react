@@ -143,17 +143,7 @@ transform: translateY(10px) ;
 transition: all ease 0.3s;
 
 }
- .css-1grlerr-MuiChip-root {
-  position: absolute;
-  width: fit-content !important;
-  top: 8px !important;
-  left: 8px !important ;
-  font-size: 0.7rem !important;
-  border-bottom-right-radius: 0 !important;
-
-z-index: 1000;
-
-}
+ 
 .css-9cjmkx-MuiRating-root {
   position: absolute !important;
   top: 8px !important;
@@ -230,7 +220,6 @@ z-index: 1000;
   padding: 5px;
   border-radius: 12px;
   background-color: #fff;
-  direction: rtl;
 
 }
 .right-slider {
@@ -247,7 +236,6 @@ padding: 1rem 1.5rem 0;
 background-color: #fff;
 border-radius: 8px;
 border: 1px solid #eee;
-direction: rtl;
 }
 .right-slider-top__content {
 display: flex;

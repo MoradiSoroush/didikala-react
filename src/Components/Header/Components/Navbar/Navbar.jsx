@@ -6,10 +6,10 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MenuIcon from "@mui/icons-material/Menu";
 import useAuthToken from "../../../../Hooks/useAuthToken";
 import { Link } from "react-router-dom";
-
+import { userCart } from "../../../../datas";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-
+   const[cart,setCart] = useState(userCart)
   let { isAuthenticated } = useAuthToken();
 
   useEffect(() => {
@@ -793,7 +793,7 @@ export default function Navbar() {
                   <Link class="nav-link" to="/cart">
                     <span class="label-dropdown">سبد خرید</span>
                     <ShoppingCartIcon />
-                    <span class="count">3</span>
+                    <span class="count">{cart.length}</span>
                   </Link>
                   <ShoppingCart />
                 </>
